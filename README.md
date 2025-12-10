@@ -18,6 +18,17 @@ Actualmente soporta los siguientes Firmwares de Playstation 5 (FAT, SLIM o Pro)
 
 ---
 
+### Incluye:
+
+- El exploit Y2JB de Gezine
+- Y2JB Autoloader
+- etaHEN 2.4 como carga única "ALL IN ONE" ya configurada
+- App PS5Xplorer (Gestor de Archivos)
+- App ItemzFlow (Manager/Gestor de juegos)
+- App Netflix-N-Hack (Permite hacer Jailbreak por si actualizas el splash de la app de YouTube accidentalmente) (Se necesita PC)
+
+---
+
 ### Credits:
 
 - **#Gezine** (Exploit Y2JB)
