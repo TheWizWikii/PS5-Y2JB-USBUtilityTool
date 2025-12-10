@@ -31,8 +31,8 @@ Actualmente soporta los siguientes Firmwares de Playstation 5 (FAT, SLIM o Pro)
 
 ### Como usarlo
 
-- Crea el USB con la herramienta y una vez termine conectas el USB en la PS5
-- Desde ajuestes restaura la copia de seguirdad y una vez termine ya podras usar la app de YouTube para hacer Jailbreak en tu consola.
+1 - Crea el USB con la herramienta y una vez termine conectas el USB en la PS5
+2 - Desde ajuestes restaura la copia de seguirdad y una vez termine ya podras usar la app de YouTube para hacer Jailbreak en tu consola.
 **Nota:** Recuerda que esto borrará todos los juegos y partidas guardadas que tuvieras en tu consola. Haz una copia de seguirdad de tu PS5 si lo deseas para tener un respaldo de todo.
 
 ### Credits:
