@@ -4,7 +4,7 @@
 
 ### Que és:
 
-Herramienta desarrollada en C# con la cual podremos preparar el USB con la copia de seguirdad y restauracion que ya contiene el exploit Y2JB de Gezine + Autoloader y algunas apps de gran utilidad.
+Herramienta desarrollada en C# para la preparación automatizada de USB. Este programa gestiona la descarga y descompresión de una copia de seguridad y restauración que ya integra el exploit Y2JB de Gezine, junto con el Autoloader y una selección de aplicaciones de utilidad, instalándolos directamente en la unidad USB para su uso inmediato.
 
 ![Alt-payload](https://i.imgur.com/fnxPXsF.png)
 
