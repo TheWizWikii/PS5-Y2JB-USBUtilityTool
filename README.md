@@ -18,7 +18,7 @@ Actualmente soporta los siguientes Firmwares de Playstation 5 (FAT, SLIM o Pro)
 
 ---
 
-### Incluye:
+### Que incluye el Backup (1,5GB):
 
 - El exploit Y2JB de Gezine
 - Y2JB Autoloader
