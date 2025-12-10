@@ -141,25 +141,26 @@ namespace USBUtilityTool
         {
             string selectedDrive = cmbUSBSelector.SelectedItem?.ToString();
 
-            // FIJAMOS LA URL A LA CONSTANTE EN LUGAR DE LEER EL TEXTBOX
+            // Usamos la constante fija
             string url = FIXED_DOWNLOAD_URL;
 
-            if (string.IsNullOrEmpty(selectedDrive)) // Solo necesitamos verificar la unidad
+            // --- 1. Verificaciones Iniciales ---
+            if (string.IsNullOrEmpty(selectedDrive))
             {
                 MessageBox.Show("Por favor, seleccione una unidad USB válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Si la URL fija no tiene el formato correcto, esto actuará como una verificación:
             if (string.IsNullOrEmpty(url) || !Uri.TryCreate(url, UriKind.Absolute, out _))
             {
                 MessageBox.Show("Error de configuración: La URL de descarga no es válida.", "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // --- 1. Preparar rutas ---
+            // --- 2. Preparar Rutas Temporales ---
             string tempDirectory = Path.GetTempPath();
             string fileName;
+
             try
             {
                 fileName = Path.GetFileName(new Uri(url).LocalPath);
@@ -178,80 +179,85 @@ namespace USBUtilityTool
             string tempZipPath = Path.Combine(tempDirectory, fileName);
             string destinationPath = selectedDrive;
 
-            // Asegurar la limpieza en caso de fallos anteriores
+            // Limpieza preventiva
             if (File.Exists(tempZipPath))
             {
                 try { File.Delete(tempZipPath); } catch { /* Ignorar */ }
             }
 
+            // Aseguramos que la barra de progreso se oculte si hay errores
+            bool downloadSuccess = false;
+
             try
             {
-                // --- 2. Descargar el Archivo (Asíncrono) ---
+                // --- 3. Descarga con Barra de Progreso ---
+
+                // **MOSTRAR E INICIALIZAR BARRA**
+                this.progressBarDownload.Value = 0;
+                this.progressBarDownload.Visible = true;
                 lblStatus.Text = $"Iniciando descarga de {fileName} a la carpeta temporal...";
 
                 using (WebClient client = new WebClient())
                 {
                     client.DownloadProgressChanged += (s, args) =>
                     {
-                        // Actualiza el estado con el porcentaje de descarga
-                        this.Invoke((MethodInvoker)delegate {
+                        // Actualización Asíncrona de UI: Barra y Label
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            this.progressBarDownload.Value = args.ProgressPercentage;
                             lblStatus.Text = $"Descargando... {args.ProgressPercentage}% completado.";
                         });
                     };
 
                     await client.DownloadFileTaskAsync(new Uri(url), tempZipPath);
-                    lblStatus.Text = $"✅ Descarga completada. Iniciando descompresión...";
+
+                    this.Invoke((MethodInvoker)delegate {
+                        this.progressBarDownload.Value = 100; // Barra al 100%
+                        lblStatus.Text = $"✅ Descarga completada. Iniciando descompresión...";
+                    });
                 }
 
-                // --- 3. Descomprimir el Archivo ZIP ---
+                // --- 4. Descomprimir el Archivo ZIP (MISMA LÓGICA ROBUSTA) ---
 
                 if (tempZipPath.EndsWith(".zip", StringComparison.OrdinalIgnoreCase))
                 {
                     lblStatus.Text = "Iniciando descompresión manual (sobrescritura garantizada)...";
 
-                    // Usamos ZipFile.OpenRead y un bucle para manejar manualmente la sobrescritura.
                     using (ZipArchive archive = ZipFile.OpenRead(tempZipPath))
                     {
                         foreach (ZipArchiveEntry entry in archive.Entries)
                         {
-                            // Ruta completa de destino (raíz del USB + ruta interna del ZIP)
                             string destinationFile = Path.Combine(destinationPath, entry.FullName);
 
-                            // 1. Manejo de Directorios (Entries que terminan en / o tienen longitud 0)
                             if (string.IsNullOrEmpty(entry.Name)) // Es un directorio
                             {
-                                // Aseguramos que la carpeta exista
                                 Directory.CreateDirectory(destinationFile);
                             }
-                            else // 2. Manejo de Archivos
+                            else // Es un archivo
                             {
-                                // Aseguramos que la carpeta que contendrá el archivo exista
                                 Directory.CreateDirectory(Path.GetDirectoryName(destinationFile));
 
-                                // Si el archivo ya existe en el USB, lo borramos primero
+                                // SOBRESCRITURA: Borrar antes de extraer
                                 if (File.Exists(destinationFile))
                                 {
                                     File.Delete(destinationFile);
                                 }
 
-                                // Extraemos el archivo
                                 entry.ExtractToFile(destinationFile);
                             }
                         }
                     }
                     lblStatus.Text = $"✅ Descompresión completada en la raíz de {selectedDrive}";
+                    downloadSuccess = true; // Marcar éxito solo si todo salió bien
                 }
                 else
                 {
-                    // Si no es ZIP, simplemente lo movemos a la raíz del USB
+                    // Manejo si el archivo no es ZIP
                     string finalFilePath = Path.Combine(destinationPath, fileName);
                     File.Move(tempZipPath, finalFilePath);
                     lblStatus.Text = $"⚠️ Advertencia: El archivo no es ZIP. Movido a la raíz de {selectedDrive} sin descomprimir.";
+                    downloadSuccess = true; // El movimiento se considera éxito
                 }
-
-                // --- 4. Limpieza ---
-                File.Delete(tempZipPath);
-                lblStatus.Text = $"✅ Tarea finalizada. Archivo temporal eliminado. USB listo.";
             }
             catch (WebException wex)
             {
@@ -267,10 +273,29 @@ namespace USBUtilityTool
             }
             finally
             {
-                // Limpieza final, incluso si hay fallos
+                // --- 5. Limpieza Final y Ocultar Barra ---
+
+                // Ocultamos y reseteamos la barra en CUALQUIER caso (éxito o error)
+                this.Invoke((MethodInvoker)delegate {
+                    this.progressBarDownload.Visible = false;
+                    this.progressBarDownload.Value = 0;
+                });
+
                 if (File.Exists(tempZipPath))
                 {
-                    try { File.Delete(tempZipPath); } catch { /* Intenta limpiar */ }
+                    try
+                    {
+                        File.Delete(tempZipPath);
+                        if (downloadSuccess)
+                        {
+                            lblStatus.Text = $"✅ Tarea finalizada. Archivo temporal eliminado. USB listo.";
+                        }
+                    }
+                    catch { /* Ignorar errores de limpieza de archivos bloqueados */ }
+                }
+                else if (downloadSuccess)
+                {
+                    lblStatus.Text = $"✅ Tarea finalizada. USB listo.";
                 }
             }
         }

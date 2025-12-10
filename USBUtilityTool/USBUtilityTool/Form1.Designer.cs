@@ -36,13 +36,14 @@ namespace USBUtilityTool
             this.lblStatus = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.progressBarDownload = new RedProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbUSBSelector
             // 
             this.cmbUSBSelector.FormattingEnabled = true;
-            this.cmbUSBSelector.Location = new System.Drawing.Point(222, 34);
+            this.cmbUSBSelector.Location = new System.Drawing.Point(208, 45);
             this.cmbUSBSelector.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbUSBSelector.Name = "cmbUSBSelector";
             this.cmbUSBSelector.Size = new System.Drawing.Size(254, 44);
@@ -52,7 +53,7 @@ namespace USBUtilityTool
             // 
             this.btnFormat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormat.Location = new System.Drawing.Point(500, 28);
+            this.btnFormat.Location = new System.Drawing.Point(486, 28);
             this.btnFormat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFormat.Name = "btnFormat";
             this.btnFormat.Size = new System.Drawing.Size(345, 77);
@@ -65,7 +66,7 @@ namespace USBUtilityTool
             // 
             this.btnDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDownload.Location = new System.Drawing.Point(867, 28);
+            this.btnDownload.Location = new System.Drawing.Point(848, 28);
             this.btnDownload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(345, 77);
@@ -78,7 +79,7 @@ namespace USBUtilityTool
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(217, 136);
+            this.lblStatus.Location = new System.Drawing.Point(206, 136);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(31, 29);
             this.lblStatus.TabIndex = 4;
@@ -88,7 +89,7 @@ namespace USBUtilityTool
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(1071, 136);
+            this.linkLabel1.Location = new System.Drawing.Point(1052, 136);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(141, 29);
             this.linkLabel1.TabIndex = 6;
@@ -107,11 +108,19 @@ namespace USBUtilityTool
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // progressBarDownload
+            // 
+            this.progressBarDownload.Location = new System.Drawing.Point(637, 145);
+            this.progressBarDownload.Name = "progressBarDownload";
+            this.progressBarDownload.Size = new System.Drawing.Size(409, 20);
+            this.progressBarDownload.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1241, 183);
+            this.ClientSize = new System.Drawing.Size(1226, 183);
+            this.Controls.Add(this.progressBarDownload);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lblStatus);
@@ -140,6 +149,7 @@ namespace USBUtilityTool
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private RedProgressBar progressBarDownload;
     }
 }
 

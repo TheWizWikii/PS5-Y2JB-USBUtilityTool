@@ -7,4 +7,3 @@ C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Release\USBUtilityT
 C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Release\USBUtilityTool.csproj.CoreCompileInputs.cache
 C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Release\USBUtilityTool.exe
 C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Release\USBUtilityTool.pdb
-C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Release\USBUtilityTool.csproj.AssemblyReference.cache
