@@ -1,50 +1,53 @@
-# PS5-Y2JB-USBUtilityTool ![Version](https://img.shields.io/badge/Version-1-red.svg)
 
----
+## PS5-Y2JB-USBUtilityTool 
 
-### Que és:
+### 🚀 ¿Qué es?
 
-Herramienta desarrollada en C# para la preparación automatizada de USB. Este programa gestiona la descarga y descompresión de una copia de seguridad y restauración que ya integra el exploit Y2JB de Gezine, junto con el Autoloader y una selección de aplicaciones de utilidad, instalándolos directamente en la unidad USB para su uso inmediato.
+Utilidad desarrollada en **C\#** para automatizar la preparación de la unidad USB.
 
-![Alt-payload](https://i.imgur.com/fnxPXsF.png)
+La herramienta descarga, descomprime e instala directamente en el USB un paquete de **copia de seguridad/restauración** que ya incluye el *exploit* **Y2JB** y varias aplicaciones esenciales, dejándolo listo para su uso inmediato.
 
----
+-----
 
-### Compatibilidad:
+### ✅ Compatibilidad
 
-Actualmente soporta los siguientes Firmwares de Playstation 5 (FAT, SLIM o Pro)
+Soporta consolas **PlayStation 5** (FAT, SLIM o Pro) con los siguientes firmwares:
 
-- 4.50 hasta 10.01
+  * **4.50** hasta **10.01**
 
----
+-----
 
-### Que incluye el Backup (1,5GB):
+### 📦 Contenido del Paquete (1.5 GB)
 
-- El exploit Y2JB de Gezine
-- Y2JB Autoloader
-- etaHEN 2.4 como carga única "ALL IN ONE" ya configurada
-- App PS5Xplorer (Gestor de Archivos)
-- App ItemzFlow (Manager/Gestor de juegos)
-- App Netflix-N-Hack (Permite hacer Jailbreak por si actualizas el splash de la app de YouTube accidentalmente) (Se necesita PC)
+Este paquete de restauración preconfigurado incluye:
 
----
+  * Exploit **Y2JB** (Gezine).
+  * **Y2JB Autoloader**.
+  * **etaHEN 2.4** (Carga única "ALL IN ONE" configurada).
+  * **PS5Xplorer** (Gestor de Archivos).
+  * **ItemzFlow** (Gestor de juegos/Manager).
+  * **Netflix-N-Hack** (Método alternativo de *jailbreak* por si actualizas la aplicación de YouTube accidentalmente).
 
-### Como usarlo
+-----
 
-1 - Crea el USB con la herramienta y una vez termine conectas el USB en la PS5
+### 💡 Modo de Uso
 
-2 - Desde ajuestes restaura la copia de seguirdad y una vez termine ya podras usar la app de YouTube para hacer Jailbreak en tu consola.
+1.  **Crea el USB:** Ejecuta la herramienta y espera a que finalice la preparación.
+2.  **Conecta y Restaura:** Conecta el USB a la PS5 y ve a Ajustes para **restaurar la copia de seguridad**.
+3.  **Listo:** Una vez completada la restauración, utiliza la aplicación de YouTube para iniciar el *Jailbreak*.
 
-**Nota:** Recuerda que esto borrará todos los juegos y partidas guardadas que tuvieras en tu consola. Haz una copia de seguirdad de tu PS5 si lo deseas para tener un respaldo de todo.
+> **⚠️ IMPORTANTE:** Este proceso borra todos los juegos y datos de guardado previos en tu consola. Se recomienda realizar una copia de seguridad antes de proceder.
 
-### Credits:
+-----
 
-- **#Gezine** (Exploit Y2JB)
-- **#najdek** (Autoloader Y2JB)
-- **#LM** (etaHEN)
-- **#sleirsgoevy & Echo** (kstuff)
+### 🙏 Créditos
 
----
+  * **Gezine:** Exploit Y2JB.
+  * **najdek:** Autoloader Y2JB.
+  * **LM:** etaHEN.
+  * **sleirsgoevy & Echo:** kstuff.
+
+-----
 
 ### Compilar:
 
