@@ -12,7 +12,7 @@ Herramienta desarrollada en C# con la cual podremos preparar el USB con la copia
 
 ### Compatibilidad:
 
-Actualmente soporta estos Firmwares de Playstation 5
+Actualmente soporta los siguientes Firmwares de Playstation 5 (FAT, SLIM o Pro)
 
 - 4.50 hasta 10.01
 
