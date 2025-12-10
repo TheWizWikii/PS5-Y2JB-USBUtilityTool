@@ -6,7 +6,7 @@
 
 Herramienta desarrollada en C# con la cual podremos preparar el USB con la copia de seguirdad y restauracion que ya contiene el exploit Y2JB de Gezine + Autoloader y algunas apps de gran utilidad.
 
-![Alt-payload](https://imgur.com/fnxPXsF)
+![Alt-payload](https://i.imgur.com/fnxPXsF.png)
 
 ---
 
