@@ -1,0 +1,10 @@
+C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\bin\Debug\USBUtilityTool.exe.config
+C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\bin\Debug\USBUtilityTool.exe
+C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\bin\Debug\USBUtilityTool.pdb
+C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Debug\USBUtilityTool.Form1.resources
+C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Debug\USBUtilityTool.Properties.Resources.resources
+C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Debug\USBUtilityTool.csproj.GenerateResource.cache
+C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Debug\USBUtilityTool.csproj.CoreCompileInputs.cache
+C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Debug\USBUtilityTool.exe
+C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Debug\USBUtilityTool.pdb
+C:\Users\Manu\source\repos\USBUtilityTool\USBUtilityTool\obj\Debug\USBUtilityTool.csproj.AssemblyReference.cache
