@@ -33,6 +33,8 @@ Actualmente soporta los siguientes Firmwares de Playstation 5 (FAT, SLIM o Pro)
 
 - **#Gezine** (Exploit Y2JB)
 - **#najdek** (Autoloader Y2JB)
+- **#LM** (etaHEN)
+- **#sleirsgoevy & Echo** (kstuff)
 
 ---
 
