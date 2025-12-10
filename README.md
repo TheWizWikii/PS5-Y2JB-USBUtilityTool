@@ -7,6 +7,8 @@ Utilidad desarrollada en **C\#** para automatizar la preparación de la unidad U
 
 La herramienta descarga, descomprime e instala directamente en el USB un paquete de **copia de seguridad/restauración** que ya incluye el *exploit* **Y2JB** y varias aplicaciones esenciales, dejándolo listo para su uso inmediato.
 
+![Alt-payload](https://i.imgur.com/fnxPXsF.png)
+
 -----
 
 ### ✅ Compatibilidad
